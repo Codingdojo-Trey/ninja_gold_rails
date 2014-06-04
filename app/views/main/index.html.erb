@@ -1,0 +1,42 @@
+<marquee>Welcome to the awesome ninja gold game!</marquee>
+<p>Find me in app/views/main/index.html.erb</p>
+<div class='box'>
+	<h2>House</h2>
+	<h3>Earns 5-10 golds</h3>
+	<form action='/main/game/house' method='post'>
+		<%= tag(:input,:type =>"hidden",:name => request_forgery_protection_token.to_s,:value => form_authenticity_token)%>
+		<input type='submit' value='GET GOLD!'>
+	</form>
+</div>
+<div class='box'>
+	<h2>Cave</h2>
+	<h3>Earns 8-15 golds</h3>
+	<form action='/main/game/cave' method='post'>
+		<%= tag(:input,:type =>"hidden",:name => request_forgery_protection_token.to_s,:value => form_authenticity_token)%>
+		<input type='submit' value='GET GOLD!'>
+	</form>
+</div>
+<div class='box'>
+	<h2>Casino</h2>
+	<h3>Earns/takes 15-30 golds</h3>
+	<form action='/main/game/casino' method='post'>
+		<%= tag(:input,:type =>"hidden",:name => request_forgery_protection_token.to_s,:value => form_authenticity_token)%>
+		<input type='submit' value='GET GOLD!'>
+	</form>
+</div>
+<div class='box'>
+	<h2>Farm</h2>
+	<h3>Earns 1-5 golds</h3>
+	<form action='/main/game/farm' method='post'>
+		<%= tag(:input,:type =>"hidden",:name => request_forgery_protection_token.to_s,:value => form_authenticity_token)%>
+		<input type='submit' value='GET GOLD!'>
+	</form>
+</div>
+<a href="/main/reset">RESET!</a>
+
+<% if session[:gold] %>
+	<h3> Your gold: <%= session[:gold] %> </h3>
+	<% session[:logs].each do |log| %>
+		<p><%= log %></p>
+	<% end %>
+<% end %>
